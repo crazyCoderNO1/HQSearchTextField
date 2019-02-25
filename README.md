@@ -61,27 +61,26 @@ tags:
 
 3. KVO监听 `placeholder` 值，有变化时改变 `frame` ；
 
-```objective-c
-    // 添加监听事件，监听placeholder值的变化，并刷新frame
-    [self addObserver:self forKeyPath:@"placeholder" options:NSKeyValueObservingOptionNew context:nil];
-```
+4. ```objective-c
+       // 添加监听事件，监听placeholder值的变化，并刷新frame
+       [self addObserver:self forKeyPath:@"placeholder" options:NSKeyValueObservingOptionNew context:nil];
+   ```
 
-```objective-c
+5. ```objective-c
+   - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+       
+       if ([keyPath isEqualToString:@"placeholder"]) {
+           
+           // do some things...
+           
+       }
+   }
+   ```
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    
-    if ([keyPath isEqualToString:@"placeholder"]) {
-        
-        // do some things...
-        
-    }
-}
-```
-
-```objective-c
-    // 移除观察者
-    [self removeObserver:self forKeyPath:@"placeholder"];
-```
+6. ```objective-c
+       // 移除观察者
+       [self removeObserver:self forKeyPath:@"placeholder"];
+   ```
 
 如果有更好的方法或有任何意见或建议，请联系我 `邮箱：dusmit@qq.com` ，望不吝赐教，万分感激。
 
