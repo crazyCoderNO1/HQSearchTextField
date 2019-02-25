@@ -35,7 +35,7 @@
     self.searchTextField = searchTextField;
     [self.view addSubview:searchTextField];
     
-    // 添加手势
+    // 添加手势，单击收起键盘
     [self addViewTapped];
 }
 
