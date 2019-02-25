@@ -61,12 +61,12 @@ tags:
 
 3. KVO监听 `placeholder` 值，有变化时改变 `frame` ；
 
-4. ```objective-c
+   ```objective-c
        // 添加监听事件，监听placeholder值的变化，并刷新frame
        [self addObserver:self forKeyPath:@"placeholder" options:NSKeyValueObservingOptionNew context:nil];
    ```
 
-5. ```objective-c
+   ```objective-c
    - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
        
        if ([keyPath isEqualToString:@"placeholder"]) {
@@ -77,7 +77,7 @@ tags:
    }
    ```
 
-6. ```objective-c
+   ```objective-c
        // 移除观察者
        [self removeObserver:self forKeyPath:@"placeholder"];
    ```
